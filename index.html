@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        html,
+        body {
+            margin: 0%;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        .wrap {
+            height: 100vh;
+            background-color: #363537;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .wrap>*{
+            margin:1.2rem;
+        }
+
+        .rect {
+            background-color: #EF2D56;
+            min-height: 50vh;
+            min-width: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border:5px solid white;
+            border-radius:2.5rem;
+
+        }
+
+        .wrap>h1 {
+            color: white;
+        }
+
+        .rect>h2 {
+            color:white;
+            font-size: 6rem;
+        }
+        .button{
+            color:white;
+            border:10px solid #EF2D56;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <h1> Random Number Generator</h1>
+        <h2 style="color:white">from 1 to 1000000</h2>
+        <div class="rect">
+            <h2 id="number">
+            </h2>
+        </div>
+        <button onClick="window.location.reload();"> REFRESH </button>
+    </div>
+</body>
+<script>
+    function random() {
+        var d = new Date();
+        // console.log(d);
+
+        let maxValue = 1000000;
+        let hour = d.getHours();
+        let minute = d.getMinutes();
+        let second = d.getSeconds();
+        let milisecond = d.getMilliseconds();
+
+        var randNum = (((hour + 1) * (minute + 1) * (second + 1) * milisecond) % maxValue);
+
+        // console.log(`here is the number ${randNum}`);
+        document.getElementById("number").innerHTML= `${randNum}`;
+    }
+    random();
+
+</script>
+
+</html>
